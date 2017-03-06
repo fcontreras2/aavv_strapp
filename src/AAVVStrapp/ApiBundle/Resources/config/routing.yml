@@ -1,0 +1,3 @@
+aavv_strapp_api_homepage:
+    path:     /
+    defaults: { _controller: AAVVStrappApiBundle:Default:index }
