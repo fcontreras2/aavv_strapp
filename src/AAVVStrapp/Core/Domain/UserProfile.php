@@ -3,6 +3,7 @@ namespace AAVVStrapp\Core\Domain;
 
 class UserProfile
 {
+
     /**
      * @var integer
      */

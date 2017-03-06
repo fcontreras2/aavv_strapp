@@ -31,7 +31,7 @@ AAVVStrapp\Core\Domain\Travel:
     oneToOne:
         # Localidad de origen
         origin_location:
-            targetEntity: AAVVStrapp\ApiBundle\Entity\Location
+            targetEntity: AAVVStrapp\Core\Domain\Location
             inversedBy: origins_travel
             joinColumn:
                 origin_travel_id:
@@ -39,7 +39,7 @@ AAVVStrapp\Core\Domain\Travel:
             cascade: ["persist"]
         # Localidad de origen
         destiny_location:
-            targetEntity: AAVVStrapp\ApiBundle\Entity\Location
+            targetEntity: AAVVStrapp\Core\Domain\Location
             inversedBy: destinies_travel
             joinColumn:
                 destiny_travel_id:

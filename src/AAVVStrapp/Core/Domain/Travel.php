@@ -3,6 +3,7 @@ namespace AAVVStrapp\Core\Domain;
 
 class Travel
 {
+
     /**
      * @var integer
      */
@@ -39,12 +40,12 @@ class Travel
     private $created;
 
     /**
-     * @var \AAVVStrapp\ApiBundle\Entity\Location
+     * @var \AAVVStrapp\Core\Domain\Location
      */
     private $origin_location;
 
     /**
-     * @var \AAVVStrapp\ApiBundle\Entity\Location
+     * @var \AAVVStrapp\Core\Domain\Location
      */
     private $destiny_location;
 
@@ -211,11 +212,11 @@ class Travel
     /**
      * Set originLocation
      *
-     * @param \AAVVStrapp\ApiBundle\Entity\Location $originLocation
+     * @param \AAVVStrapp\Core\Domain\Location $originLocation
      *
      * @return Travel
      */
-    public function setOriginLocation(\AAVVStrapp\ApiBundle\Entity\Location $originLocation = null)
+    public function setOriginLocation(\AAVVStrapp\Core\Domain\Location $originLocation = null)
     {
         $this->origin_location = $originLocation;
 
@@ -225,7 +226,7 @@ class Travel
     /**
      * Get originLocation
      *
-     * @return \AAVVStrapp\ApiBundle\Entity\Location
+     * @return \AAVVStrapp\Core\Domain\Location
      */
     public function getOriginLocation()
     {
@@ -235,11 +236,11 @@ class Travel
     /**
      * Set destinyLocation
      *
-     * @param \AAVVStrapp\ApiBundle\Entity\Location $destinyLocation
+     * @param \AAVVStrapp\Core\Domain\Location $destinyLocation
      *
      * @return Travel
      */
-    public function setDestinyLocation(\AAVVStrapp\ApiBundle\Entity\Location $destinyLocation = null)
+    public function setDestinyLocation(\AAVVStrapp\Core\Domain\Location $destinyLocation = null)
     {
         $this->destiny_location = $destinyLocation;
 
@@ -249,7 +250,7 @@ class Travel
     /**
      * Get destinyLocation
      *
-     * @return \AAVVStrapp\ApiBundle\Entity\Location
+     * @return \AAVVStrapp\Core\Domain\Location
      */
     public function getDestinyLocation()
     {
