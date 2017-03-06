@@ -1,0 +1,46 @@
+AAVVStrapp\Core\Domain\UserProfile:
+    type: entity
+    table: user_profile
+    repositoryClass: AAVVStrapp\ApiBundle\Repository\UserProfileRepository
+
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+      # Nombre completo
+      full_name:
+        type: string
+      # Cedula de identidad
+      identity_card:
+        type: string
+      # Dirección
+      address:
+        type: string
+      # Teléfono fijo
+      phone:
+        type: string
+      # Ultima actualización
+      last_update:
+        type: datetime
+      # Fecha de creación
+      created:
+        type: datetime
+
+    oneToMany:
+        # Trabajos relacionado al perdil
+        travels:
+            targetEntity: AAVVStrap\Core\Domain\Travel
+            mappedBy: user_profile
+            cascade: ["persist"]
+
+    manyToOne:
+          # Usuario asociado a la agencia
+          user_profile:
+              targetEntity: AAVVStrapp\Core\Domain\UserProfile
+              mappedBy: null
+              joinColumns:
+                location_id:
+                  referencedColumnName: id
+              orphanRemoval: false

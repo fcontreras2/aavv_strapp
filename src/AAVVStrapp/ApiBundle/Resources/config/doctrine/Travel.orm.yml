@@ -1,0 +1,57 @@
+AAVVStrapp\Core\Domain\Travel:
+    type: entity
+    table: travel
+    repositoryClass: AAVVStrapp\ApiBundle\Repository\TravelRepository
+
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+      # Código del viaje
+      travel_code:
+        type: string
+      # Número de plazas
+      number_places:
+        type: integer
+      # Fecha de realización del viaje
+      travel_date:
+        type: string
+      # Información adicional
+      additional_information:
+        type: string
+      # Ultima actualización
+      last_update:
+        type: datetime
+      # Fecha de creación
+      created:
+        type: datetime
+
+    oneToOne:
+        # Localidad de origen
+        origin_location:
+            targetEntity: AAVVStrapp\ApiBundle\Entity\Location
+            inversedBy: origins_travel
+            joinColumn:
+                origin_travel_id:
+                    referencedColumnName: id
+            cascade: ["persist"]
+        # Localidad de origen
+        destiny_location:
+            targetEntity: AAVVStrapp\ApiBundle\Entity\Location
+            inversedBy: destinies_travel
+            joinColumn:
+                destiny_travel_id:
+                    referencedColumnName: id
+            cascade: ["persist"]
+
+    manyToOne:
+        # Usuario asociado a la agencia
+        user_profile:
+            targetEntity: AAVVStrapp\Core\Domain\UserProfile
+            mappedBy: null
+            joinColumns:
+              user_id:
+                referencedColumnName: id
+            orphanRemoval: false

@@ -1,0 +1,38 @@
+AAVVStrapp\Core\Domain\Location:
+    type: entity
+    table: location
+    repositoryClass: AAVVStrapp\ApiBundle\Repository\LocationRepository
+
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+      # Código del viaje
+      location_code:
+        type: string
+      # Nombre de la localidad
+      name:
+        type: string
+      # Información adicional
+      additional_information:
+        type: string
+      # Ultima actualización
+      last_update:
+        type: datetime
+      # Fecha de creación
+      created:
+        type: datetime
+
+    oneToMany:
+        # Viajes de origen
+        origins_travel:
+            targetEntity: AAVVStrapp\Core\Domain\Travel
+            mappedBy: origin_location
+            cascade: ["persist"]
+        # Viajes de destino
+        destinies_travel:
+            targetEntity: AAVVStrapp\Core\Domain\Travel
+            mappedBy: destitny_location
+            cascade: ["persist"]
