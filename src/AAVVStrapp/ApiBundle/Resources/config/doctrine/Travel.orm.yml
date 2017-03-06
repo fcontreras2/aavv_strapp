@@ -1,4 +1,4 @@
-AAVVStrapp\Core\Domain\Travel:
+AAVVStrapp\ApiBundle\Entity\Travel:
     type: entity
     table: travel
     repositoryClass: AAVVStrapp\ApiBundle\Repository\TravelRepository
@@ -31,7 +31,7 @@ AAVVStrapp\Core\Domain\Travel:
     oneToOne:
         # Localidad de origen
         origin_location:
-            targetEntity: AAVVStrapp\Core\Domain\Location
+            targetEntity: AAVVStrapp\ApiBundle\Entity\Location
             inversedBy: origins_travel
             joinColumn:
                 origin_travel_id:
@@ -39,7 +39,7 @@ AAVVStrapp\Core\Domain\Travel:
             cascade: ["persist"]
         # Localidad de origen
         destiny_location:
-            targetEntity: AAVVStrapp\Core\Domain\Location
+            targetEntity: AAVVStrapp\ApiBundle\Entity\Location
             inversedBy: destinies_travel
             joinColumn:
                 destiny_travel_id:
@@ -49,8 +49,8 @@ AAVVStrapp\Core\Domain\Travel:
     manyToOne:
         # Usuario asociado a la agencia
         user_profile:
-            targetEntity: AAVVStrapp\Core\Domain\UserProfile
-            mappedBy: null
+            targetEntity: AAVVStrapp\ApiBundle\Entity\UserProfile
+            mappedBy: travels
             joinColumns:
               user_id:
                 referencedColumnName: id

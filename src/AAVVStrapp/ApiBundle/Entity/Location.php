@@ -1,48 +1,48 @@
 <?php
-namespace AAVVStrapp\Core\Domain;
+namespace AAVVStrapp\ApiBundle\Entity;
 
-class Location
+class Location extends BaseEntity
 {
 
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      */
-    private $location_code;
+    protected $location_code;
 
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      */
-    private $additional_information;
+    protected $additional_information;
 
     /**
      * @var \DateTime
      */
-    private $last_update;
+    protected $last_update;
 
     /**
      * @var \DateTime
      */
-    private $created;
+    protected $created;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $origins_travel;
+    protected $origins_travel;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $destinies_travel;
+    protected $destinies_travel;
 
     /**
      * Constructor
@@ -186,11 +186,11 @@ class Location
     /**
      * Add originsTravel
      *
-     * @param \AAVVStrapp\Core\Domain\Travel $originsTravel
+     * @param \AAVVStrapp\ApiBundle\Entity\Travel $originsTravel
      *
      * @return Location
      */
-    public function addOriginsTravel(\AAVVStrapp\Core\Domain\Travel $originsTravel)
+    public function addOriginsTravel(\AAVVStrapp\ApiBundle\Entity\Travel $originsTravel)
     {
         $this->origins_travel[] = $originsTravel;
 
@@ -200,9 +200,9 @@ class Location
     /**
      * Remove originsTravel
      *
-     * @param \AAVVStrapp\Core\Domain\Travel $originsTravel
+     * @param \AAVVStrapp\ApiBundle\Entity\Travel $originsTravel
      */
-    public function removeOriginsTravel(\AAVVStrapp\Core\Domain\Travel $originsTravel)
+    public function removeOriginsTravel(\AAVVStrapp\ApiBundle\Entity\Travel $originsTravel)
     {
         $this->origins_travel->removeElement($originsTravel);
     }
@@ -220,11 +220,11 @@ class Location
     /**
      * Add destiniesTravel
      *
-     * @param \AAVVStrapp\Core\Domain\Travel $destiniesTravel
+     * @param \AAVVStrapp\ApiBundle\Entity\Travel $destiniesTravel
      *
      * @return Location
      */
-    public function addDestiniesTravel(\AAVVStrapp\Core\Domain\Travel $destiniesTravel)
+    public function addDestiniesTravel(\AAVVStrapp\ApiBundle\Entity\Travel $destiniesTravel)
     {
         $this->destinies_travel[] = $destiniesTravel;
 
@@ -234,9 +234,9 @@ class Location
     /**
      * Remove destiniesTravel
      *
-     * @param \AAVVStrapp\Core\Domain\Travel $destiniesTravel
+     * @param \AAVVStrapp\ApiBundle\Entity\Travel $destiniesTravel
      */
-    public function removeDestiniesTravel(\AAVVStrapp\Core\Domain\Travel $destiniesTravel)
+    public function removeDestiniesTravel(\AAVVStrapp\ApiBundle\Entity\Travel $destiniesTravel)
     {
         $this->destinies_travel->removeElement($destiniesTravel);
     }

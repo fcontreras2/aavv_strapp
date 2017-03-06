@@ -1,4 +1,4 @@
-AAVVStrapp\Core\Domain\Location:
+AAVVStrapp\ApiBundle\Entity\Location:
     type: entity
     table: location
     repositoryClass: AAVVStrapp\ApiBundle\Repository\LocationRepository
@@ -28,11 +28,11 @@ AAVVStrapp\Core\Domain\Location:
     oneToMany:
         # Viajes de origen
         origins_travel:
-            targetEntity: AAVVStrapp\Core\Domain\Travel
+            targetEntity: AAVVStrapp\ApiBundle\Entity\Travel
             mappedBy: origin_location
             cascade: ["persist"]
         # Viajes de destino
         destinies_travel:
-            targetEntity: AAVVStrapp\Core\Domain\Travel
+            targetEntity: AAVVStrapp\ApiBundle\Entity\Travel
             mappedBy: destitny_location
             cascade: ["persist"]

@@ -1,58 +1,58 @@
 <?php
-namespace AAVVStrapp\Core\Domain;
+namespace AAVVStrapp\ApiBundle\Entity;
 
-class Travel
+class Travel extends BaseEntity
 {
 
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      */
-    private $travel_code;
+    protected $travel_code;
 
     /**
      * @var integer
      */
-    private $number_places;
+    protected $number_places;
 
     /**
      * @var string
      */
-    private $travel_date;
+    protected $travel_date;
 
     /**
      * @var string
      */
-    private $additional_information;
+    protected $additional_information;
 
     /**
      * @var \DateTime
      */
-    private $last_update;
+    protected $last_update;
 
     /**
      * @var \DateTime
      */
-    private $created;
+    protected $created;
 
     /**
-     * @var \AAVVStrapp\Core\Domain\Location
+     * @var \AAVVStrapp\ApiBundle\Entity\Location
      */
-    private $origin_location;
+    protected $origin_location;
 
     /**
-     * @var \AAVVStrapp\Core\Domain\Location
+     * @var \AAVVStrapp\ApiBundle\Entity\Location
      */
-    private $destiny_location;
+    protected $destiny_location;
 
     /**
-     * @var \AAVVStrapp\Core\Domain\UserProfile
+     * @var \AAVVStrapp\ApiBundle\Entity\UserProfile
      */
-    private $user_profile;
+    protected $user_profile;
 
 
     /**
@@ -212,11 +212,11 @@ class Travel
     /**
      * Set originLocation
      *
-     * @param \AAVVStrapp\Core\Domain\Location $originLocation
+     * @param \AAVVStrapp\ApiBundle\Entity\Location $originLocation
      *
      * @return Travel
      */
-    public function setOriginLocation(\AAVVStrapp\Core\Domain\Location $originLocation = null)
+    public function setOriginLocation(\AAVVStrapp\ApiBundle\Entity\Location $originLocation = null)
     {
         $this->origin_location = $originLocation;
 
@@ -226,7 +226,7 @@ class Travel
     /**
      * Get originLocation
      *
-     * @return \AAVVStrapp\Core\Domain\Location
+     * @return \AAVVStrapp\ApiBundle\Entity\Location
      */
     public function getOriginLocation()
     {
@@ -236,11 +236,11 @@ class Travel
     /**
      * Set destinyLocation
      *
-     * @param \AAVVStrapp\Core\Domain\Location $destinyLocation
+     * @param \AAVVStrapp\ApiBundle\Entity\Location $destinyLocation
      *
      * @return Travel
      */
-    public function setDestinyLocation(\AAVVStrapp\Core\Domain\Location $destinyLocation = null)
+    public function setDestinyLocation(\AAVVStrapp\ApiBundle\Entity\Location $destinyLocation = null)
     {
         $this->destiny_location = $destinyLocation;
 
@@ -250,7 +250,7 @@ class Travel
     /**
      * Get destinyLocation
      *
-     * @return \AAVVStrapp\Core\Domain\Location
+     * @return \AAVVStrapp\ApiBundle\Entity\Location
      */
     public function getDestinyLocation()
     {
@@ -260,11 +260,11 @@ class Travel
     /**
      * Set userProfile
      *
-     * @param \AAVVStrapp\Core\Domain\UserProfile $userProfile
+     * @param \AAVVStrapp\ApiBundle\Entity\UserProfile $userProfile
      *
      * @return Travel
      */
-    public function setUserProfile(\AAVVStrapp\Core\Domain\UserProfile $userProfile = null)
+    public function setUserProfile(\AAVVStrapp\ApiBundle\Entity\UserProfile $userProfile = null)
     {
         $this->user_profile = $userProfile;
 
@@ -274,7 +274,7 @@ class Travel
     /**
      * Get userProfile
      *
-     * @return \AAVVStrapp\Core\Domain\UserProfile
+     * @return \AAVVStrapp\ApiBundle\Entity\UserProfile
      */
     public function getUserProfile()
     {

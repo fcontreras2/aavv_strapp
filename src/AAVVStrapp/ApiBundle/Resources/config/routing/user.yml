@@ -1,0 +1,15 @@
+aavv_strapp_api_user_register:
+  path: /register
+  defaults: { _controller: AAVVStrappApiBundle:User:register }
+
+aavv_strapp_api_user_edit:
+  path: /edit
+  defaults: { _controller: AAVVStrappApiBundle:User:edit }
+
+aavv_strapp_api_user_delete:
+  path: /delete
+  defaults: { _controller: AAVVStrappApiBundle:User:delete }
+
+aavv_strapp_api_user_read:
+  path: /read
+  defaults: { _controller: AAVVStrappApiBundle:User:read }

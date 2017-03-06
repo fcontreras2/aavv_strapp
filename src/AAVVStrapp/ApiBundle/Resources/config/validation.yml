@@ -1,0 +1,12 @@
+AAVVStrapp\ApiBundle\Entity\UserProfile:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: { fields: identity_card, groups: create }
+    properties:
+        full_name:
+            - NotBlank: { groups: [create, edit] }
+        identity_card:
+            - NotBlank: { groups: [create, edit] }
+        address:
+            - NotBlank: { groups: [create, edit] }
+        phone:
+            - NotBlank: { groups: [create, edit] }

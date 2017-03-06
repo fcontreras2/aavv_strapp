@@ -1,53 +1,48 @@
 <?php
-namespace AAVVStrapp\Core\Domain;
+namespace AAVVStrapp\ApiBundle\Entity;
 
-class UserProfile
+class UserProfile extends BaseEntity
 {
 
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      */
-    private $full_name;
+    protected $full_name;
 
     /**
      * @var string
      */
-    private $identity_card;
+    protected $identity_card;
 
     /**
      * @var string
      */
-    private $address;
+    protected $address;
 
     /**
      * @var string
      */
-    private $phone;
+    protected $phone;
 
     /**
      * @var \DateTime
      */
-    private $last_update;
+    protected $last_update;
 
     /**
      * @var \DateTime
      */
-    private $created;
+    protected $created;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $travels;
-
-    /**
-     * @var \AAVVStrapp\Core\Domain\UserProfile
-     */
-    private $user_profile;
+    protected $travels;
 
     /**
      * Constructor
@@ -55,7 +50,10 @@ class UserProfile
     public function __construct()
     {
         $this->travels = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->last_update = new \DateTime();
+        $this->created = new \DateTime();
     }
+
 
     /**
      * Get id
@@ -214,11 +212,11 @@ class UserProfile
     /**
      * Add travel
      *
-     * @param \AAVVStrap\Core\Domain\Travel $travel
+     * @param \AAVVStrapp\ApiBundle\Entity\Travel $travel
      *
      * @return UserProfile
      */
-    public function addTravel(\AAVVStrap\Core\Domain\Travel $travel)
+    public function addTravel(\AAVVStrapp\ApiBundle\Entity\Travel $travel)
     {
         $this->travels[] = $travel;
 
@@ -228,9 +226,9 @@ class UserProfile
     /**
      * Remove travel
      *
-     * @param \AAVVStrap\Core\Domain\Travel $travel
+     * @param \AAVVStrapp\ApiBundle\Entity\Travel $travel
      */
-    public function removeTravel(\AAVVStrap\Core\Domain\Travel $travel)
+    public function removeTravel(\AAVVStrapp\ApiBundle\Entity\Travel $travel)
     {
         $this->travels->removeElement($travel);
     }
@@ -243,29 +241,5 @@ class UserProfile
     public function getTravels()
     {
         return $this->travels;
-    }
-
-    /**
-     * Set userProfile
-     *
-     * @param \AAVVStrapp\Core\Domain\UserProfile $userProfile
-     *
-     * @return UserProfile
-     */
-    public function setUserProfile(\AAVVStrapp\Core\Domain\UserProfile $userProfile = null)
-    {
-        $this->user_profile = $userProfile;
-
-        return $this;
-    }
-
-    /**
-     * Get userProfile
-     *
-     * @return \AAVVStrapp\Core\Domain\UserProfile
-     */
-    public function getUserProfile()
-    {
-        return $this->user_profile;
     }
 }

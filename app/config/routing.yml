@@ -1,3 +1,7 @@
 aavv_strapp_api:
     resource: "@AAVVStrappApiBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /api
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc

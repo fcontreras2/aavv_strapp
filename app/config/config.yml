@@ -63,7 +63,7 @@ doctrine:
         mappings:
             AAVVStrappDomain:
                 type: yml
-                prefix: AAVVStrapp\Core\Domain
+                prefix: AAVVStrapp\ApiBundle\Entity
                 dir: %kernel.root_dir%/../src/AAVVStrapp/ApiBundle/Resources/config/doctrine
                 is_bundle: false
 

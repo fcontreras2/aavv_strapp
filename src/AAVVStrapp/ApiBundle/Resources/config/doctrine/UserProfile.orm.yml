@@ -1,4 +1,4 @@
-AAVVStrapp\Core\Domain\UserProfile:
+AAVVStrapp\ApiBundle\Entity\UserProfile:
     type: entity
     table: user_profile
     repositoryClass: AAVVStrapp\ApiBundle\Repository\UserProfileRepository
@@ -31,16 +31,6 @@ AAVVStrapp\Core\Domain\UserProfile:
     oneToMany:
         # Trabajos relacionado al perdil
         travels:
-            targetEntity: AAVVStrap\Core\Domain\Travel
+            targetEntity: AAVVStrapp\ApiBundle\Entity\Travel
             mappedBy: user_profile
             cascade: ["persist"]
-
-    manyToOne:
-          # Usuario asociado a la agencia
-          user_profile:
-              targetEntity: AAVVStrapp\Core\Domain\UserProfile
-              mappedBy: null
-              joinColumns:
-                location_id:
-                  referencedColumnName: id
-              orphanRemoval: false
