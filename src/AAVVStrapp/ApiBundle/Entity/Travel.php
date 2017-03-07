@@ -1,6 +1,16 @@
 <?php
 namespace AAVVStrapp\ApiBundle\Entity;
 
+/**
+ * Class Travel
+ *
+ * Clase que hace referencia a los viajes
+ * de los usuarios. Donde cada viaje tiene asociado
+ * un usuario, un origen y lugar destino.
+ *
+ * @author Freddy Contreras
+ * @package AAVVStrapp\ApiBundle\Entity
+ */
 class Travel extends BaseEntity
 {
 
@@ -10,49 +20,75 @@ class Travel extends BaseEntity
     protected $id;
 
     /**
+     * Código del viaje
+     *
      * @var string
      */
     protected $travel_code;
 
     /**
+     * Número de plazas
+     *
      * @var integer
      */
     protected $number_places;
 
     /**
+     * Fecha del viaje
+     *
      * @var string
      */
     protected $travel_date;
 
     /**
+     * Información adicional
+     *
      * @var string
      */
     protected $additional_information;
 
     /**
+     * Ultima actualización
+     *
      * @var \DateTime
      */
     protected $last_update;
 
     /**
+     * Fecha de creación
+     *
      * @var \DateTime
      */
     protected $created;
 
     /**
+     * Localidad origin del viaje
+     *
      * @var \AAVVStrapp\ApiBundle\Entity\Location
      */
     protected $origin_location;
 
     /**
+     * Localidad destino del viaje
+     *
      * @var \AAVVStrapp\ApiBundle\Entity\Location
      */
     protected $destiny_location;
 
     /**
+     * Usuario asociado al viaje
+     *
      * @var \AAVVStrapp\ApiBundle\Entity\UserProfile
      */
     protected $user_profile;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->travel_code = 'TRAV-'.substr(time()+rand(), 0, 14);
+    }
 
 
     /**

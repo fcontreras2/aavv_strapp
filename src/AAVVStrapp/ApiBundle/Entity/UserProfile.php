@@ -1,6 +1,14 @@
 <?php
 namespace AAVVStrapp\ApiBundle\Entity;
 
+/**
+ * Class UserProfile
+ *
+ * Clase hace referencia a los usuarios del sistema
+ * los cuales tiene un conjunto de viajes asociados
+ *
+ * @package AAVVStrapp\ApiBundle\Entity
+ */
 class UserProfile extends BaseEntity
 {
 
@@ -10,36 +18,50 @@ class UserProfile extends BaseEntity
     protected $id;
 
     /**
+     * Nombre del usuario
+     *
      * @var string
      */
     protected $full_name;
 
     /**
+     * Cedula de identidad
+     *
      * @var string
      */
     protected $identity_card;
 
     /**
+     * Dirección
+     *
      * @var string
      */
     protected $address;
 
     /**
+     * Teléfono
+     *
      * @var string
      */
     protected $phone;
 
     /**
+     * Ultima actualización
+     *
      * @var \DateTime
      */
     protected $last_update;
 
     /**
+     * Fecha de creación
+     *
      * @var \DateTime
      */
     protected $created;
 
     /**
+     * Viajes del usuario
+     *
      * @var \Doctrine\Common\Collections\Collection
      */
     protected $travels;
@@ -50,10 +72,8 @@ class UserProfile extends BaseEntity
     public function __construct()
     {
         $this->travels = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->last_update = new \DateTime();
-        $this->created = new \DateTime();
     }
-
+    
 
     /**
      * Get id

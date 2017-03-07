@@ -1,6 +1,15 @@
 <?php
 namespace AAVVStrapp\ApiBundle\Entity;
 
+/**
+ * Class Location
+ *
+ * La clase hace referencia a las localidades
+ * donde puede viajes los usuarios.
+ *
+ * @author Freddy Contreras
+ * @package AAVVStrapp\ApiBundle\Entity
+ */
 class Location extends BaseEntity
 {
 
@@ -10,36 +19,47 @@ class Location extends BaseEntity
     protected $id;
 
     /**
+     * Código de la localidad
      * @var string
      */
     protected $location_code;
 
     /**
+     * Nombre de la localidad
      * @var string
      */
     protected $name;
 
     /**
+     * Información adicional
      * @var string
      */
     protected $additional_information;
 
     /**
+     * Ultima actualización
      * @var \DateTime
      */
     protected $last_update;
 
     /**
+     * Fecha de creación
      * @var \DateTime
      */
     protected $created;
 
     /**
+     * Conjuntos de viajes donde la localidad es una
+     * localidad de origen
+     *
      * @var \Doctrine\Common\Collections\Collection
      */
     protected $origins_travel;
 
     /**
+     * Conjunto de viajes donde la localidad es una
+     * localidad destino
+     *
      * @var \Doctrine\Common\Collections\Collection
      */
     protected $destinies_travel;
@@ -52,6 +72,8 @@ class Location extends BaseEntity
         $this->origins_travel = new \Doctrine\Common\Collections\ArrayCollection();
         $this->destinies_travel = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
+
 
     /**
      * Get id

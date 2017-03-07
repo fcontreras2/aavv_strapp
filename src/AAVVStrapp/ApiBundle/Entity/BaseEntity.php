@@ -44,4 +44,20 @@ class BaseEntity
         }
         return $response;
     }
+
+    /**
+     * Actualizar la fecha de edición
+     */
+    public function updateLastUpdate()
+    {
+        $this->last_update = new \DateTime();
+    }
+
+    /**
+     * Asignación de la fecha de creación
+     */
+    public function updateCreated()
+    {
+        $this->created = new \DateTime();
+    }
 }
