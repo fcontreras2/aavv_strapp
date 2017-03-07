@@ -28,7 +28,7 @@ AAVVStrapp\ApiBundle\Entity\Travel:
       created:
         type: datetime
 
-    oneToOne:
+    manyToOne:
         # Localidad de origen
         origin_location:
             targetEntity: AAVVStrapp\ApiBundle\Entity\Location
@@ -46,12 +46,17 @@ AAVVStrapp\ApiBundle\Entity\Travel:
                     referencedColumnName: id
             cascade: ["persist"]
 
-    manyToOne:
         # Usuario asociado a la agencia
         user_profile:
             targetEntity: AAVVStrapp\ApiBundle\Entity\UserProfile
             mappedBy: travels
-            joinColumns:
+            inversedBy: travels
+            joinColumn:
               user_id:
                 referencedColumnName: id
             orphanRemoval: false
+
+    # Eventos que se ejecutan al editar un elemento
+    lifecycleCallbacks:
+        prePersist: [ updateCreated, updateLastUpdate ]
+        postPersist: [ updateLastUpdate ]

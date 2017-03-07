@@ -33,4 +33,9 @@ AAVVStrapp\ApiBundle\Entity\UserProfile:
         travels:
             targetEntity: AAVVStrapp\ApiBundle\Entity\Travel
             mappedBy: user_profile
-            cascade: ["persist"]
+            cascade: ["persist","remove"]
+
+    # Eventos que se ejecutan al editar un elemento
+    lifecycleCallbacks:
+        prePersist: [ updateCreated, updateLastUpdate ]
+        postPersist: [ updateLastUpdate ]

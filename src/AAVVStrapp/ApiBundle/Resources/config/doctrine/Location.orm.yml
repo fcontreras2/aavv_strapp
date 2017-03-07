@@ -36,3 +36,8 @@ AAVVStrapp\ApiBundle\Entity\Location:
             targetEntity: AAVVStrapp\ApiBundle\Entity\Travel
             mappedBy: destitny_location
             cascade: ["persist"]
+
+    # Eventos que se ejecutan al editar un elemento
+    lifecycleCallbacks:
+        prePersist: [ updateCreated, updateLastUpdate ]
+        postPersist: [ updateLastUpdate ]
