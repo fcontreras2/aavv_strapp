@@ -64,7 +64,7 @@ parameters:
     database_host: sql10.freesqldatabase.com
     database_port: 3306
     database_name: sql10162356
-    database_user: sql10162356
+    database_user: DRMUNjs6r5
     database_password: DRMUNjs6r5
     .....
 ```
