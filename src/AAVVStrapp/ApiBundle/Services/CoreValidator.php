@@ -5,15 +5,14 @@ namespace AAVVStrapp\ApiBundle\Services;
  * La clase siguiente hace uso del conntenedor de servicio para
  * hacer llamado al servicio de validator de symfony2.
  *
- * @author Joel D. Requena P. <Joel.2005.2@gmail.com>
- * @author Currently Working: Joel D. Requena P.
+ * @author Freddy Contreras
  */
 class CoreValidator
 {
     /**
      * Metodo que hace uso del validator del framework.
      *
-     * @author Joel D. Requena P. <Joel.2005.2@gmail.com>
+     * @author Freddy Contreras
      * @param object $obj
      */
     public function validate($obj, $group = null)
@@ -24,13 +23,9 @@ class CoreValidator
         if (count($errors) > 0) {
 
             $response = [];
-            $responseError = [];
 
             foreach ($errors as $currentError) {
-                $message =
-                $value =
-                $parameter =
-
+                
                 $response[] = [
                     'message' => $currentError->getMessage(),
                     'value' => $currentError->getInvalidValue(),
