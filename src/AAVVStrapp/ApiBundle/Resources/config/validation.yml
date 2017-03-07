@@ -1,3 +1,4 @@
+# Validaciones de la entidad UserProfile
 AAVVStrapp\ApiBundle\Entity\UserProfile:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: { fields: identity_card, groups: create }
@@ -9,4 +10,31 @@ AAVVStrapp\ApiBundle\Entity\UserProfile:
         address:
             - NotBlank: { groups: [create, edit] }
         phone:
+            - NotBlank: { groups: [create, edit] }
+
+# Validaciones de la entidad Travel
+AAVVStrapp\ApiBundle\Entity\Travel:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: { fields: travel_code, groups: create }
+    properties:
+        travel_code:
+            - NotBlank: { groups: [create, edit] }
+        number_places:
+            - NotBlank: { groups: [create, edit] }
+            - Type:
+                type: integer
+        travel_date:
+            - NotBlank: { groups: [create, edit] }
+            - Date: ~
+        additional_information:
+            - NotBlank: { groups: [create, edit] }
+
+# Validaciones de la entidad Location
+AAVVStrapp\ApiBundle\Entity\Location:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: { fields: location_code, groups: create }
+    properties:
+        name:
+            - NotBlank: { groups: [create, edit] }
+        additional_information:
             - NotBlank: { groups: [create, edit] }

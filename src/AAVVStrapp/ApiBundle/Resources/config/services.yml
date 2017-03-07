@@ -1,7 +1,4 @@
 services:
-#    aavv_strapp_api.example:
-#        class: AAVVStrapp\ApiBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
-
+    # Servicio de validación de las entidades
     core_validator:
         class: AAVVStrapp\ApiBundle\Services\CoreValidator
