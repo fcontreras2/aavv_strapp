@@ -9,7 +9,7 @@ AAVV Strapp Api es un desarrollo del backend, donde  mediante solicitudes y peti
   - Servidor de hosting: Heroku [ver Demo](https://aavvstrapp.herokuapp.com/api/doc)
   - Servidor de base de datos: freesqldatabase.com
   
-# Requemientos
+# Requerimientos
 A continuación, para ejecutar localmente debe contar con los siguientes requisitos. De igual manera se encuentra disponible la opción en Herolu [ver Demo](https://aavvstrapp.herokuapp.com/api/doc) :
   - Git
   - Apache2
