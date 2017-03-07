@@ -1,0 +1,24 @@
+# Listado de localidad
+aavv_strapp_api_location_list:
+  path: /list
+  defaults: { _controller: AAVVStrappApiBundle:Location:list }
+
+# Registro de localidad
+aavv_strapp_api_location_register:
+  path: /register
+  defaults: { _controller: AAVVStrappApiBundle:Location:register }
+
+# Edición de localidad
+aavv_strapp_api_location_edit:
+  path: /edit
+  defaults: { _controller: AAVVStrappApiBundle:Location:edit }
+
+# Eliminar localidad
+aavv_strapp_api_location_delete:
+  path: /delete
+  defaults: { _controller: AAVVStrappApiBundle:Location:delete }
+
+# Obtener datos de la localidad
+aavv_strapp_api_location_read:
+  path: /read
+  defaults: { _controller: AAVVStrappApiBundle:Location:read }

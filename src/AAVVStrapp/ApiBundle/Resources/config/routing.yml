@@ -1,3 +1,12 @@
+# Peticiones referentes a los usuarios
 aavv_strapp_api_user:
     resource: "@AAVVStrappApiBundle/Resources/config/routing/user.yml"
     prefix:   /user
+# Peticiones referentes a los viajes
+aavv_strapp_api_travel:
+    resource: "@AAVVStrappApiBundle/Resources/config/routing/travel.yml"
+    prefix:   /travel
+# Peticiones referentes a las localidades
+aavv_strapp_api_location:
+    resource: "@AAVVStrappApiBundle/Resources/config/routing/location.yml"
+    prefix:   /location

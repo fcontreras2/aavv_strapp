@@ -1,0 +1,24 @@
+# Listado de viajes
+aavv_strapp_api_travel_list:
+  path: /list
+  defaults: { _controller: AAVVStrappApiBundle:Travel:list }
+
+# Registro de viaje
+aavv_strapp_api_travel_register:
+  path: /register
+  defaults: { _controller: AAVVStrappApiBundle:Travel:register }
+
+# Edición de viaje
+aavv_strapp_api_travel_edit:
+  path: /edit
+  defaults: { _controller: AAVVStrappApiBundle:Travel:edit }
+
+# Eliminar viaje
+aavv_strapp_api_travel_delete:
+  path: /delete
+  defaults: { _controller: AAVVStrappApiBundle:Travel:delete }
+
+# Obtener datos de la localidad
+aavv_strapp_api_travel_read:
+  path: /read
+  defaults: { _controller: AAVVStrappApiBundle:Travel:read }

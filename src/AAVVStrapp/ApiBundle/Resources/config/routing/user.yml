@@ -1,15 +1,24 @@
+# Listado de usuarios
+aavv_strapp_api_userl_list:
+  path: /list
+  defaults: { _controller: AAVVStrappApiBundle:User:list }
+
+# Registro de usuario
 aavv_strapp_api_user_register:
   path: /register
   defaults: { _controller: AAVVStrappApiBundle:User:register }
 
+# Edición de usuario
 aavv_strapp_api_user_edit:
   path: /edit
   defaults: { _controller: AAVVStrappApiBundle:User:edit }
 
+# Eliminar usuario
 aavv_strapp_api_user_delete:
   path: /delete
   defaults: { _controller: AAVVStrappApiBundle:User:delete }
 
+# Obtener datos de un usuario
 aavv_strapp_api_user_read:
   path: /read
   defaults: { _controller: AAVVStrappApiBundle:User:read }
