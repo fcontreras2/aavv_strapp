@@ -6,14 +6,14 @@ use Doctrine\ORM\EntityRepository;
 
 /**
  * Se declaran los metodos y funciones que implementan
- * el repositorio de la entidad UserProfile
+ * el repositorio de la entidad Location
  *
  * @author Freddy Contreras
  */
-class UserProfileRepository extends EntityRepository
+class LocationRepository extends EntityRepository
 {
     /**
-     * La siguiente functión retorna los datos de un usuario
+     * La siguiente functión retorna los datos de una localidad
      * dado el id
      *
      * @param $id
@@ -23,14 +23,7 @@ class UserProfileRepository extends EntityRepository
         $conn = $this->getEntityManager()
             ->getConnection();
 
-        $sql = '
-            select
-                *
-            from
-              user_profile u
-              where u.id = :id
-
-        ';
+        $sql = ' select * from location l where l.id = :id ';
 
         $stmt = $conn->prepare($sql);
         $stmt->execute(array('id' => $id));
@@ -38,7 +31,7 @@ class UserProfileRepository extends EntityRepository
     }
 
     /**
-     * Obtiene todos los usuarios del sistema
+     * Obtener la localidades del sistema
      *
      * @return array
      */
@@ -47,7 +40,7 @@ class UserProfileRepository extends EntityRepository
         $conn = $this->getEntityManager()
             ->getConnection();
 
-        $sql = 'select * from user_profile';
+        $sql = ' select * from location';
 
         $stmt = $conn->prepare($sql);
         $stmt->execute();

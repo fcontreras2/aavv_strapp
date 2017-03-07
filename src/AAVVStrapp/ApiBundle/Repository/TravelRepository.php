@@ -6,17 +6,18 @@ use Doctrine\ORM\EntityRepository;
 
 /**
  * Se declaran los metodos y funciones que implementan
- * el repositorio de la entidad UserProfile
+ * el repositorio de la entidad Travel
  *
  * @author Freddy Contreras
  */
-class UserProfileRepository extends EntityRepository
+class TravelRepository extends EntityRepository
 {
     /**
-     * La siguiente functión retorna los datos de un usuario
+     * La siguiente functión retorna los datos de un viaje
      * dado el id
      *
      * @param $id
+     * @return array
      */
     public function findById($id)
     {
@@ -25,10 +26,19 @@ class UserProfileRepository extends EntityRepository
 
         $sql = '
             select
-                *
+                t.*,
+                u.id as user_id,
+                u.full_name,
+                lo.id as origin_location_id,
+                lo.name as origin_location_name,
+                ld.id as destiny_location_id,
+                ld.name as destiny_location_name
             from
-              user_profile u
-              where u.id = :id
+              travel t
+              left join user_profile u on u.id = t.user_profile_id
+              left join location lo on t.origin_location_id = lo.id
+              left join location ld on t.destiny_location_id = ld.id
+              where t.id = :id
 
         ';
 
@@ -38,7 +48,7 @@ class UserProfileRepository extends EntityRepository
     }
 
     /**
-     * Obtiene todos los usuarios del sistema
+     * Obtiene todos los viajes del sistema
      *
      * @return array
      */
@@ -47,7 +57,7 @@ class UserProfileRepository extends EntityRepository
         $conn = $this->getEntityManager()
             ->getConnection();
 
-        $sql = 'select * from user_profile';
+        $sql = ' select * from travel t';
 
         $stmt = $conn->prepare($sql);
         $stmt->execute();
