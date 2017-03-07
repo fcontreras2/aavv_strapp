@@ -30,12 +30,10 @@ class LocationController extends Controller
      * @return json  http status
      *
      * @ApiDoc(
-     *     tags={
-     *         "POST" = "green"
-     *     },
      *     resource=true,
      *     resourceDescription="Obtiene el listado de todos los viajes del sistema",
      *     description="Retorna los viajes del sisteam",
+     *     views = { "location" },
      *     statusCodes={
      *         201="Usuario Creado",
      *         400="Datos incorrectos",
@@ -65,12 +63,15 @@ class LocationController extends Controller
      * @param  Request $request
      * @return json  http status
      * @ApiDoc(
-     *     tags={
-     *         "POST" = "green"
-     *     },
      *     resource=true,
      *     resourceDescription="Registrar localidad",
      *     description="Registrar localidad al sistema",
+     *     views = { "location" },
+     *      parameters={
+     *          {"name"="name", "dataType"="integer","description"="id del trabajo", "required"="true"},
+     *          {"name"="additional_information", "dataType"="string","description"="información adicional", "required"="true"},
+     *          {"name"="location_code", "dataType"="string","description"="Código de la localidad", "required"="true"},
+     *      },
      *     statusCodes={
      *         201="Localidad Creada",
      *         400="Datos incorrectos",
@@ -111,12 +112,16 @@ class LocationController extends Controller
      * @return JsonResponse
      *
      * @ApiDoc(
-     *     tags={
-     *         "POST" = "blue"
-     *     },
      *     resource=true,
      *     resourceDescription="Actualización de localidad",
      *     description="La ruta actualiza un localidad",
+     *     views = { "location" },
+     *     parameters={
+     *          {"name"="id", "dataType"="integer","description"="Id de la localidad", "required"="true"},
+     *          {"name"="name", "dataType"="integer","description"="id del trabajo", "required"="true"},
+     *          {"name"="additional_information", "dataType"="string","description"="información adicional", "required"="true"},
+     *          {"name"="location_code", "dataType"="string","description"="Código de la localidad", "required"="true"},
+     *      },
      *     statusCodes={
      *         200="Localidad Actualizado",
      *         400="Datos incorrectos",
@@ -163,12 +168,13 @@ class LocationController extends Controller
      * eliminar un viaje del sistema
      *
      * @ApiDoc(
-     *     tags={
-     *         "POST" = "red"
-     *     },
      *     resource=true,
      *     resourceDescription="Eliminar viaje",
      *     description="La ruta elimina un viaje dado el id",
+     *     views = { "location" },
+     *     parameters={
+     *          {"name"="id", "dataType"="integer","description"="Id de la localidad", "required"="true"}
+     *      },
      *     statusCodes={
      *         200="Viaje eliminado",
      *         400="Datos incorrectos",
@@ -209,12 +215,13 @@ class LocationController extends Controller
      * dado el id del viaje
      *
      * @ApiDoc(
-     *     tags={
-     *         "GET" = "blue"
-     *     },
      *     resource=true,
      *     resourceDescription="Obtener información de un viaje",
      *     description="La ruta Obtiene la información de un viaje",
+     *     views = { "location" },
+     *     parameters={
+     *          {"name"="id", "dataType"="integer","description"="Id de la localidad", "required"="true"},
+     *      },
      *     statusCodes={
      *         200="Petición correcta",
      *         400="Datos incorrectos",

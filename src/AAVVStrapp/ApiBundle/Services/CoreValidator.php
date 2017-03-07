@@ -25,7 +25,7 @@ class CoreValidator
             $response = [];
 
             foreach ($errors as $currentError) {
-                
+
                 $response[] = [
                     'message' => $currentError->getMessage(),
                     'value' => $currentError->getInvalidValue(),

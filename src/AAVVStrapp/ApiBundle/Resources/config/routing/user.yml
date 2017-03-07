@@ -2,23 +2,28 @@
 aavv_strapp_api_userl_list:
   path: /list
   defaults: { _controller: AAVVStrappApiBundle:User:list }
+  methods:  [GET]
 
 # Registro de usuario
 aavv_strapp_api_user_register:
   path: /register
   defaults: { _controller: AAVVStrappApiBundle:User:register }
+  methods:  [POST]
 
 # Edición de usuario
 aavv_strapp_api_user_edit:
   path: /edit
   defaults: { _controller: AAVVStrappApiBundle:User:edit }
+  methods:  [POST]
 
 # Eliminar usuario
 aavv_strapp_api_user_delete:
   path: /delete
   defaults: { _controller: AAVVStrappApiBundle:User:delete }
+  methods:  [POST]
 
 # Obtener datos de un usuario
 aavv_strapp_api_user_read:
   path: /read
   defaults: { _controller: AAVVStrappApiBundle:User:read }
+  methods:  [GET]

@@ -30,12 +30,10 @@ class UserController extends Controller
      * @return json  http status
      *
      * @ApiDoc(
-     *     tags={
-     *         "POST" = "green"
-     *     },
      *     resource=true,
      *     resourceDescription="Obtiene el listado de todos los viajes del sistema",
      *     description="Retorna los viajes del sisteam",
+     *     views = { "user" },
      *     statusCodes={
      *         201="Usuario Creado",
      *         400="Datos incorrectos",
@@ -64,12 +62,16 @@ class UserController extends Controller
      * @param  Request $request
      * @return json http status
      * @ApiDoc(
-     *     tags={
-     *         "POST" = "green"
-     *     },
      *     resource=true,
      *     resourceDescription="Registrar a un usuario en el sistema",
      *     description="Listados de los tipos de trabajo en el sistema (homepage)",
+     *     views = { "user" },
+     *     parameters={
+     *          {"name"="full_name", "dataType"="string","description"="Nombre del usuario", "required"="true"},
+     *          {"name"="identity_card", "dataType"="string","description"="Cédula de identidad", "required"="true"},
+     *          {"name"="address", "dataType"="string","description"="Dirección del usuario", "required"="true"},
+     *          {"name"="phone", "dataType"="string","description"="Teléfono del usuario", "required"="true"},
+     *      },
      *     statusCodes={
      *         201="Usuario Creado",
      *         400="Datos incorrectos",
@@ -105,12 +107,17 @@ class UserController extends Controller
      * La siguiente función se encarga de editar los datos de un usuario
      *
      * @ApiDoc(
-     *     tags={
-     *         "POST" = "blue"
-     *     },
      *     resource=true,
      *     resourceDescription="Usuario actualizado",
      *     description="La ruta actualiza un usuario del sistema",
+     *     views = { "user" },
+     *     parameters={
+     *          {"name"="id", "dataType"="string","description"="Id del usuario", "required"="true"},
+     *          {"name"="full_name", "dataType"="string","description"="Nombre del usuario", "required"="true"},
+     *          {"name"="identity_card", "dataType"="string","description"="Cédula de identidad", "required"="true"},
+     *          {"name"="address", "dataType"="string","description"="Dirección del usuario", "required"="true"},
+     *          {"name"="phone", "dataType"="string","description"="Teléfono del usuario", "required"="true"},
+     *      },
      *     statusCodes={
      *         200="Usuario Actualizado",
      *         400="Datos incorrectos",
@@ -161,12 +168,13 @@ class UserController extends Controller
      * @return JsonResponse
      *
      * @ApiDoc(
-     *     tags={
-     *         "POST" = "red"
-     *     },
      *     resource=true,
      *     resourceDescription="Eliminar usuario",
      *     description="La ruta elimina un usuario registrado dado un id",
+     *     views = { "user" },
+     *     parameters={
+     *          {"name"="id", "dataType"="string","description"="Id del usuario a eliminar", "required"="true"}
+     *      },
      *     statusCodes={
      *         200="Usuario eliminado",
      *         400="Datos incorrectos",
@@ -206,12 +214,13 @@ class UserController extends Controller
      * @return JsonResponse
      *
      * @ApiDoc(
-     *     tags={
-     *         "GET" = "blue"
-     *     },
      *     resource=true,
      *     resourceDescription="Obtener información de un usuario",
      *     description="La ruta Obtiene la información de un usuario",
+     *     views = { "user" },
+     *     parameters={
+     *          {"name"="id", "dataType"="string","description"="Id del usuario a consultar", "required"="true"}
+     *      },
      *     statusCodes={
      *         200="Petición correcta",
      *         400="Datos incorrectos",

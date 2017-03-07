@@ -30,14 +30,12 @@ class TravelController extends Controller
      * @return json  http status
      *
      * @ApiDoc(
-     *     tags={
-     *         "POST" = "green"
-     *     },
      *     resource=true,
      *     resourceDescription="Obtiene el listado de todos los viajes del sistema",
-     *     description="Retorna los viajes del sisteam",
+     *     description="Retorna los viajes registrado en el sistema",
+     *     views = { "travel" },
      *     statusCodes={
-     *         201="Usuario Creado",
+     *         200="Solicitud correcta",
      *         400="Datos incorrectos",
      *         404="Usuario no encontrado",
      *         500="Error el sistema"
@@ -59,20 +57,26 @@ class TravelController extends Controller
 
     /**
      * La siguiente función se encarga de registrar un viaje
-     * relacionado a un usuario
+     * relacionado a *** un usuario, localidad origin y localidad destino ***
      *
      * @author Freddy Contreras
      * @param  Request $request
      * @return json  http status
      * @ApiDoc(
-     *     tags={
-     *         "POST" = "green"
-     *     },
      *     resource=true,
      *     resourceDescription="Registrar Viaje",
      *     description="Registrar viaje al sistema, relacionado a un usuario",
+     *     views = { "travel" },
+     *      parameters={
+     *          {"name"="number_places", "dataType"="integer","description"="Número de plazas", "required"="true"},
+     *          {"name"="additional_information", "dataType"="string","description"="información adicional", "required"="true"},
+     *          {"name"="travel_date", "dataType"="date","description"="Fecha del viaje", "required"="true"},
+     *          {"name"="user_id", "dataType"="integer","description"="Id del usuario", "required"="true"},
+     *          {"name"="origin_id", "dataType"="date","description"="Id de la localidad origen", "required"="true"},
+     *          {"name"="destiny_id", "dataType"="date","description"="Id de la localidad origen", "required"="true"}
+     *      },
      *     statusCodes={
-     *         201="Usuario Creado",
+     *         201="Viaje Creado",
      *         400="Datos incorrectos",
      *         404="Usuario no encontrado",
      *         500="Error el sistema"
@@ -131,12 +135,19 @@ class TravelController extends Controller
      * @return JsonResponse
      *
      * @ApiDoc(
-     *     tags={
-     *         "POST" = "blue"
-     *     },
      *     resource=true,
      *     resourceDescription="Actualización de viaje",
      *     description="La ruta actualiza un viaje",
+     *     views = { "travel" },
+     *      parameters={
+     *          {"name"="id", "dataType"="integer","description"="Id del viaje", "required"="true"},
+     *          {"name"="number_places", "dataType"="integer","description"="Número de plazas", "required"="true"},
+     *          {"name"="additional_information", "dataType"="string","description"="información adicional", "required"="true"},
+     *          {"name"="travel_date", "dataType"="date","description"="Fecha del viaje", "required"="true"},
+     *          {"name"="user_id", "dataType"="integer","description"="Id del usuario", "required"="true"},
+     *          {"name"="origin_id", "dataType"="date","description"="Id de la localidad origen", "required"="true"},
+     *          {"name"="destiny_id", "dataType"="date","description"="Id de la localidad origen", "required"="true"}
+     *      },
      *     statusCodes={
      *         200="Viaje Actualizado",
      *         400="Datos incorrectos",
@@ -193,12 +204,13 @@ class TravelController extends Controller
      * eliminar un viaje del sistema
      *
      * @ApiDoc(
-     *     tags={
-     *         "POST" = "red"
-     *     },
      *     resource=true,
      *     resourceDescription="Eliminar viaje",
      *     description="La ruta elimina un viaje dado el id",
+     *     views = { "travel" },
+     *      parameters={
+     *          {"name"="id", "dataType"="integer","description"="Id del viaje", "required"="true"}
+     *      },
      *     statusCodes={
      *         200="Viaje eliminado",
      *         400="Datos incorrectos",
@@ -206,6 +218,7 @@ class TravelController extends Controller
      *         500="Error el sistema"
      *     }
      *  )
+     *
      * @author Freddy Contreras
      * @param Request $request
      * @return JsonResponse
@@ -239,12 +252,13 @@ class TravelController extends Controller
      * dado el id del viaje
      *
      * @ApiDoc(
-     *     tags={
-     *         "GET" = "blue"
-     *     },
      *     resource=true,
      *     resourceDescription="Obtener información de un viaje",
      *     description="La ruta Obtiene la información de un viaje",
+     *     views = { "travel" },
+     *      parameters={
+     *          {"name"="id", "dataType"="integer","description"="Id del viaje", "required"="true"}
+     *      },
      *     statusCodes={
      *         200="Petición correcta",
      *         400="Datos incorrectos",
