@@ -8,18 +8,18 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Component\HttpFoundation\Request;
 // Entidades
-use AAVVStrapp\ApiBundle\Entity\UserProfile;
+use AAVVStrapp\ApiBundle\Entity\Location;
 
 /**
- * La siguiente clase recibe y proceso las solicitudes referentes
- * a los usuarios del sistema
+ * La clase proceso todos los datos de las
+ * localidades
  *
- * Class UserController
+ * Class LocationController
  *
  * @author Freddy Contreras
  * @package AAVVStrapp\ApiBundle\Controller
  */
-class UserController extends Controller
+class LocationController extends Controller
 {
     /**
      * La siguiente función se encarga de registrar un viaje
@@ -49,29 +49,30 @@ class UserController extends Controller
         if ($request->isMethod('GET')) {
 
             $em = $this->getDoctrine()->getManager();
-            $users = $em->getRepository('AAVVStrappDomain:UserProfile')->findAll();
+            $locations = $em->getRepository('AAVVStrappDomain:Location')->findAll();
 
-            return new JsonResponse($users, 200);
+            return new JsonResponse($locations, 200);
         }
 
         return new JsonResponse('Bad request - It\'s not GET',404);
     }
 
     /**
-     * La siguiente función se encarga de registrar
-     * a un usuario en el sistema
+     * La siguiente función se encarga de registrar una localidad
+     * en el sistema
      *
+     * @author Freddy Contreras
      * @param  Request $request
-     * @return json http status
+     * @return json  http status
      * @ApiDoc(
      *     tags={
      *         "POST" = "green"
      *     },
      *     resource=true,
-     *     resourceDescription="Registrar a un usuario en el sistema",
-     *     description="Listados de los tipos de trabajo en el sistema (homepage)",
+     *     resourceDescription="Registrar localidad",
+     *     description="Registrar localidad al sistema",
      *     statusCodes={
-     *         201="Usuario Creado",
+     *         201="Localidad Creada",
      *         400="Datos incorrectos",
      *         404="Usuario no encontrado",
      *         500="Error el sistema"
@@ -82,44 +83,47 @@ class UserController extends Controller
     {
         if ($request->isMethod('POST')) {
 
-            $userProfile = new UserProfile();
-            $userProfile->setAttributes(json_decode($request->getContent(),true));
+            $location = new Location();
+            $location->setAttributes(json_decode($request->getContent(),true));
 
             $validator = $this->get('core_validator');
-            $errors = $validator->validate($userProfile,['create']);
+            $errors = $validator->validate($location,['create']);
 
             // Validación de los datos
             if (count($errors) > 0)
                 return new JsonResponse($errors, 400);
 
             $em = $this->getDoctrine()->getManager();
-            $em->persist($userProfile);
+            $em->persist($location);
             $em->flush();
-            return new JsonResponse('Ok',200);
+            return new JsonResponse('Ok',201);
         }
 
         return new JsonResponse('Bad request - It\'s not POST',400);
     }
 
     /**
-     * La siguiente función se encarga de editar los datos de un usuario
+     * La siguiente función se encarga de editar
+     * una localidad en el sistema
+     *
+     * @author Freddy Contreras
+     * @param Request $request
+     * @return JsonResponse
      *
      * @ApiDoc(
      *     tags={
      *         "POST" = "blue"
      *     },
      *     resource=true,
-     *     resourceDescription="Usuario actualizado",
-     *     description="La ruta actualiza un usuario del sistema",
+     *     resourceDescription="Actualización de localidad",
+     *     description="La ruta actualiza un localidad",
      *     statusCodes={
-     *         200="Usuario Actualizado",
+     *         200="Localidad Actualizado",
      *         400="Datos incorrectos",
      *         404="Usuario no encontrado",
      *         500="Error el sistema"
      *     }
      *  )
-     * @param Request $request
-     * @return JsonResponse
      */
     public function editAction(Request $request)
     {
@@ -129,24 +133,24 @@ class UserController extends Controller
             $em = $this->getDoctrine()->getManager();
 
             if (isset($data['id']))
-                $userProfile = $em->getRepository('AAVVStrappDomain:UserProfile')->find($data['id']);
+                $location = $em->getRepository('AAVVStrappDomain:Location')->find($data['id']);
             else
                 return new JsonResponse('Not Found',404);
 
-            if (!$userProfile)
+            if (!$location)
                 return new JsonResponse('Not Found',404);
 
 
-            $userProfile->setAttributes($data);
+            $location->setAttributes($data);
 
             $validator = $this->get('core_validator');
-            $errors = $validator->validate($userProfile);
+            $errors = $validator->validate($location,['edit']);
 
             if (count($errors) > 0)
                 return new JsonResponse($errors, 400);
 
             $em = $this->getDoctrine()->getManager();
-            $em->persist($userProfile);
+            $em->persist($location);
             $em->flush();
             return new JsonResponse('Ok',200);
         }
@@ -155,25 +159,26 @@ class UserController extends Controller
     }
 
     /**
-     * Eliminar Usuario registrado
-     *
-     * @param Request $request
-     * @return JsonResponse
+     * La siguiente función se encarga de
+     * eliminar un viaje del sistema
      *
      * @ApiDoc(
      *     tags={
      *         "POST" = "red"
      *     },
      *     resource=true,
-     *     resourceDescription="Eliminar usuario",
-     *     description="La ruta elimina un usuario registrado dado un id",
+     *     resourceDescription="Eliminar viaje",
+     *     description="La ruta elimina un viaje dado el id",
      *     statusCodes={
-     *         200="Usuario eliminado",
+     *         200="Viaje eliminado",
      *         400="Datos incorrectos",
      *         404="Usuario no encontrado",
      *         500="Error el sistema"
      *     }
      *  )
+     * @author Freddy Contreras
+     * @param Request $request
+     * @return JsonResponse
      */
     public function deleteAction(Request $request)
     {
@@ -183,15 +188,15 @@ class UserController extends Controller
             $em = $this->getDoctrine()->getManager();
 
             if (isset($data['id']))
-                $userProfile = $em->getRepository('AAVVStrappDomain:UserProfile')->find($data['id']);
+                $location = $em->getRepository('AAVVStrappDomain:Location')->find($data['id']);
             else
                 return new JsonResponse('Not Found',404);
 
-            if (!$userProfile)
+            if (!$location)
                 return new JsonResponse('Not Found',404);
 
             $em = $this->getDoctrine()->getManager();
-            $em->remove($userProfile);
+            $em->remove($location);
             $em->flush();
             return new JsonResponse('Ok',200);
         }
@@ -200,18 +205,16 @@ class UserController extends Controller
     }
 
     /**
-     * Obtener información de un usuario
-     *
-     * @param Request $request
-     * @return JsonResponse
+     * Obtener los datos de un viaje
+     * dado el id del viaje
      *
      * @ApiDoc(
      *     tags={
      *         "GET" = "blue"
      *     },
      *     resource=true,
-     *     resourceDescription="Obtener información de un usuario",
-     *     description="La ruta Obtiene la información de un usuario",
+     *     resourceDescription="Obtener información de un viaje",
+     *     description="La ruta Obtiene la información de un viaje",
      *     statusCodes={
      *         200="Petición correcta",
      *         400="Datos incorrectos",
@@ -219,24 +222,25 @@ class UserController extends Controller
      *         500="Error el sistema"
      *     }
      *  )
+     * @author Freddy Contreras
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function readAction($id = null, Request $request)
+    public function readAction(Request $request)
     {
         if ($request->isMethod('GET')) {
 
             $em = $this->getDoctrine()->getManager();
 
             if (isset($_GET['id']))
-                $userProfile = $em->getRepository('AAVVStrappDomain:UserProfile')->findById($_GET['id']);
+                $location = $em->getRepository('AAVVStrappDomain:Location')->findById($_GET['id']);
             else
                 return new JsonResponse('Not Found',404);
 
-            if (!$userProfile)
+            if (!$location)
                 return new JsonResponse('Not Found',404);
 
-            $serializer = $this->get('jms_serializer');
-
-            return new JsonResponse($userProfile, 200);
+            return new JsonResponse($location, 200);
         }
 
         return new JsonResponse('Bad request - It\'s not GET',404);
