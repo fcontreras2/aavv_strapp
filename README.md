@@ -68,13 +68,21 @@ parameters:
     database_password: DRMUNjs6r5
     .....
 ```
-#### Desarrollo
+
+#### Aplicar migraciones
+
+En local debe aplicar las migraciones generadas con [DoctrineMigrationsBundle](https://github.com/doctrine/migrations), ubicado en el directorio del proyecto ejecuta el siguiente comando.
+
+```
+$ php bin/console doctrine:migrations:migrate
+```
+# Desarrollo
 Los siguientes puntos son puntos de ayuda para entender como fue desarrollador el sistema.
 
 * [Symfony3](https://github.com/fcontreras2/aavv_strapp/tree/master/src/AAVVStrapp/ApiBundle/Resources/config/doc/Symfony.md) - Ubicaciones de archivos y carpetas
 * [Diagrama BD](https://github.com/fcontreras2/aavv_strapp/tree/master/src/AAVVStrapp/ApiBundle/Resources/config/doc/BD.png) - Diagrama relacional de la BD  
 
-#### Realizar pruebas
+# Realizar pruebas
 
 Se debe realizar prueba en la opción de SandBox de cada endpoint
 
