@@ -33,7 +33,7 @@ class UserController extends Controller
      *     resource=true,
      *     resourceDescription="Obtiene el listado de todos los viajes del sistema",
      *     description="Retorna los viajes del sisteam",
-     *     views = { "user" },
+     *     views = { "user","default" },
      *     statusCodes={
      *         201="Usuario Creado",
      *         400="Datos incorrectos",
@@ -48,7 +48,6 @@ class UserController extends Controller
 
             $em = $this->getDoctrine()->getManager();
             $users = $em->getRepository('AAVVStrappDomain:UserProfile')->findAll();
-
             return new JsonResponse($users, 200);
         }
 
@@ -65,7 +64,7 @@ class UserController extends Controller
      *     resource=true,
      *     resourceDescription="Registrar a un usuario en el sistema",
      *     description="Listados de los tipos de trabajo en el sistema (homepage)",
-     *     views = { "user" },
+     *     views = { "user","default" },
      *     parameters={
      *          {"name"="full_name", "dataType"="string","description"="Nombre del usuario", "required"="true"},
      *          {"name"="identity_card", "dataType"="string","description"="Cédula de identidad", "required"="true"},
@@ -110,7 +109,7 @@ class UserController extends Controller
      *     resource=true,
      *     resourceDescription="Usuario actualizado",
      *     description="La ruta actualiza un usuario del sistema",
-     *     views = { "user" },
+     *     views = { "user","default" },
      *     parameters={
      *          {"name"="id", "dataType"="string","description"="Id del usuario", "required"="true"},
      *          {"name"="full_name", "dataType"="string","description"="Nombre del usuario", "required"="true"},
@@ -171,7 +170,7 @@ class UserController extends Controller
      *     resource=true,
      *     resourceDescription="Eliminar usuario",
      *     description="La ruta elimina un usuario registrado dado un id",
-     *     views = { "user" },
+     *     views = { "user","default" },
      *     parameters={
      *          {"name"="id", "dataType"="string","description"="Id del usuario a eliminar", "required"="true"}
      *      },
@@ -217,7 +216,7 @@ class UserController extends Controller
      *     resource=true,
      *     resourceDescription="Obtener información de un usuario",
      *     description="La ruta Obtiene la información de un usuario",
-     *     views = { "user" },
+     *     views = { "user","default" },
      *     parameters={
      *          {"name"="id", "dataType"="string","description"="Id del usuario a consultar", "required"="true"}
      *      },

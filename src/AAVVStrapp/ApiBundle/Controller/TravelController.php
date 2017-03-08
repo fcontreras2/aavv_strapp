@@ -33,7 +33,7 @@ class TravelController extends Controller
      *     resource=true,
      *     resourceDescription="Obtiene el listado de todos los viajes del sistema",
      *     description="Retorna los viajes registrado en el sistema",
-     *     views = { "travel" },
+     *     views = { "travel","default" },
      *     statusCodes={
      *         200="Solicitud correcta",
      *         400="Datos incorrectos",
@@ -66,7 +66,7 @@ class TravelController extends Controller
      *     resource=true,
      *     resourceDescription="Registrar Viaje",
      *     description="Registrar viaje al sistema, relacionado a un usuario",
-     *     views = { "travel" },
+     *     views = { "travel","default" },
      *      parameters={
      *          {"name"="number_places", "dataType"="integer","description"="Número de plazas", "required"="true"},
      *          {"name"="additional_information", "dataType"="string","description"="información adicional", "required"="true"},
@@ -138,7 +138,7 @@ class TravelController extends Controller
      *     resource=true,
      *     resourceDescription="Actualización de viaje",
      *     description="La ruta actualiza un viaje",
-     *     views = { "travel" },
+     *     views = { "travel","default" },
      *      parameters={
      *          {"name"="id", "dataType"="integer","description"="Id del viaje", "required"="true"},
      *          {"name"="number_places", "dataType"="integer","description"="Número de plazas", "required"="true"},
@@ -207,7 +207,7 @@ class TravelController extends Controller
      *     resource=true,
      *     resourceDescription="Eliminar viaje",
      *     description="La ruta elimina un viaje dado el id",
-     *     views = { "travel" },
+     *     views = { "travel","default" },
      *      parameters={
      *          {"name"="id", "dataType"="integer","description"="Id del viaje", "required"="true"}
      *      },
@@ -255,7 +255,7 @@ class TravelController extends Controller
      *     resource=true,
      *     resourceDescription="Obtener información de un viaje",
      *     description="La ruta Obtiene la información de un viaje",
-     *     views = { "travel" },
+     *     views = { "travel","default" },
      *      parameters={
      *          {"name"="id", "dataType"="integer","description"="Id del viaje", "required"="true"}
      *      },

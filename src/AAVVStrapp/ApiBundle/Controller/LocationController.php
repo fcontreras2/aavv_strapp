@@ -33,7 +33,7 @@ class LocationController extends Controller
      *     resource=true,
      *     resourceDescription="Obtiene el listado de todos los viajes del sistema",
      *     description="Retorna los viajes del sisteam",
-     *     views = { "location" },
+     *     views = { "location","default" },
      *     statusCodes={
      *         201="Usuario Creado",
      *         400="Datos incorrectos",
@@ -66,7 +66,7 @@ class LocationController extends Controller
      *     resource=true,
      *     resourceDescription="Registrar localidad",
      *     description="Registrar localidad al sistema",
-     *     views = { "location" },
+     *     views = { "location","default" },
      *      parameters={
      *          {"name"="name", "dataType"="integer","description"="id del trabajo", "required"="true"},
      *          {"name"="additional_information", "dataType"="string","description"="información adicional", "required"="true"},
@@ -115,7 +115,7 @@ class LocationController extends Controller
      *     resource=true,
      *     resourceDescription="Actualización de localidad",
      *     description="La ruta actualiza un localidad",
-     *     views = { "location" },
+     *     views = { "location", "default"},
      *     parameters={
      *          {"name"="id", "dataType"="integer","description"="Id de la localidad", "required"="true"},
      *          {"name"="name", "dataType"="integer","description"="id del trabajo", "required"="true"},
@@ -171,7 +171,7 @@ class LocationController extends Controller
      *     resource=true,
      *     resourceDescription="Eliminar viaje",
      *     description="La ruta elimina un viaje dado el id",
-     *     views = { "location" },
+     *     views = { "location","default" },
      *     parameters={
      *          {"name"="id", "dataType"="integer","description"="Id de la localidad", "required"="true"}
      *      },
@@ -218,7 +218,7 @@ class LocationController extends Controller
      *     resource=true,
      *     resourceDescription="Obtener información de un viaje",
      *     description="La ruta Obtiene la información de un viaje",
-     *     views = { "location" },
+     *     views = { "location","default" },
      *     parameters={
      *          {"name"="id", "dataType"="integer","description"="Id de la localidad", "required"="true"},
      *      },
