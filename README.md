@@ -10,7 +10,7 @@ AAVV Strapp Api es un desarrollo del backend, donde  mediante solicitudes y peti
   - Servidor de base de datos: freesqldatabase.com
   
 # Requerimientos
-A continuación, para ejecutar localmente debe contar con los siguientes requisitos. De igual manera se encuentra disponible la opción en Herolu [ver Demo](https://aavvstrapp.herokuapp.com/api/doc) :
+A continuación, para ejecutar localmente debe contar con los siguientes requisitos. De igual manera se encuentra disponible la opción en Heroku [ver Demo](https://aavvstrapp.herokuapp.com/api/doc) :
   - Git
   - Apache2
   - Php7
@@ -64,7 +64,7 @@ parameters:
     database_host: sql10.freesqldatabase.com
     database_port: 3306
     database_name: sql10162356
-    database_user: DRMUNjs6r5
+    database_user: sql10162356
     database_password: DRMUNjs6r5
     .....
 ```
